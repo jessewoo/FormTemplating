@@ -1,0 +1,159 @@
+/**********************************/
+/*****  HEADER - LOGO - SEARCH ****/
+/**********************************/
+
+#header {
+  margin-top: 50px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  background: #f2f3f4 url(../images/common/HeaderImage.jpg) no-repeat 0 0;
+  background-position: center;
+  margin-bottom: 20px;
+  border-bottom: 8px solid #325880;
+}
+
+#header .container {
+  position: relative;
+}
+
+#header .container .row {
+  margin-top: 10px;
+  padding-bottom: 20px;
+}
+
+#rcsblogo {
+  width: 230px;
+  float: left;
+}
+
+.emphasis {
+  font-size: 14px;
+}
+
+.emphasis-link {
+  font-size: 20px;
+}
+
+#tagline {
+  float: left;
+  width: 180px;
+  font-size: 14px;
+  margin: 7px 10px;
+  line-height: 122%;
+  color: #666666;
+  display: inline-block;
+}
+
+/* Header section Search Bar */
+#headerQueryForm {
+  margin-top: 10px;
+  font-color: #555555;
+}
+
+#headerQueryForm input {
+  padding: 0 20px;
+  height: 50px;
+  width: 87%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+#headerQueryForm button {
+  padding: 15px;
+  background-color: #3f4951;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* 'Go' button set inline with search box */
+.form-inline .form-control {
+  display: inline-block;
+}
+
+.quicklinks {
+  font-size: 12px;
+  margin-left: 20px;
+}
+
+/* Social Media, Tablet/Mobile icons */
+#socialmedia_section {
+  background: #325880;
+  display: block;
+  color: #FFFFFF;
+  padding: 3px 6px;
+  width: 135px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  position: absolute;
+  bottom: -32px; /* bottom: -1; */
+  right: 0;
+}
+
+#socialmedia_section li {
+  display: inline;
+}
+
+#socialmedia_section li a,
+#socialmedia_section li a:hover {
+  color: #FFFFFF;
+}
+
+/* Member's Icon */
+#PDBmembers {
+  list-style-type: none;
+  padding: 0;
+  position: absolute;
+  bottom: -32px; /* bottom: -1; */
+  left: -5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 3px 6px;
+}
+
+#PDBmembers h6 {
+  font-size: 13px;
+  display: inline-block;
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+#PDBmembers li {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  margin-right: 3px;
+}
+
+#pdb101logo {
+  width: 95px;
+  margin-bottom: 3px;
+}
+
+#wwpdblogo {
+  width: 80px;
+  margin-bottom: 4px;
+}
+
+#emdatabanklogo {
+  width: 100px;
+  margin-bottom: 2px;
+}
+
+#ndblogo {
+  width: 88px;
+  margin-bottom: 2px;
+}
+
+#sbkblogo {
+  width: 82px;
+  margin-bottom: 0;
+}
+
+#logo_container,
+#search_container {
+  padding: 0;
+}
+
+#logo_container {
+  margin-top: 10px;
+}

@@ -1,0 +1,55 @@
+.navbar {
+    background-color: #325880;
+}
+
+.navbar .container {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.navbar-fixed-top {
+    border: 0px;
+}
+
+.navbar-inverse .navbar-nav .dropdown-toggle,
+.navbar-inverse .navbar-header .navbar-brand {
+    color: #ffffff;
+}
+
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: #ffffff;
+    color: #080808;
+    border: 0px;
+}
+
+.navbar-inverse .navbar-nav > li > .dropdown-menu {
+    color: #080808;
+    border-top: 0;
+}
+
+.navbar-header .navbar-toggle {
+    margin-left: 15px;
+    border-color: #FFFFFF;
+    background-color: #325880;
+}
+
+.navbar-header .navbar-toggle:hover {
+    background-color: #18385A;
+}
+
+/* Tighten navigation menu li */
+.navbar .navbar-nav .dropdown .dropdown-toggle {
+    padding: 15px 10px;
+}
+
+/* MyPDB Login */
+.myPDBLogin_Area {
+    margin-top: 8px;
+}
+
+#mypdb_loginMenu .dropdown-menu {
+    left: -112px;
+}

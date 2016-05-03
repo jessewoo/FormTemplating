@@ -1,0 +1,15 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+body {
+  color: #5a5a5a;
+}
+
+.btn-primary {
+	color: #fff;
+	background-color: #175488;
+	border-color: #203549;
+}
+
+body #main_content {
+	margin-top: 10px;
+}
