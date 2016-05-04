@@ -13,3 +13,20 @@ body {
 body #main_content {
 	margin-top: 70px;
 }
+
+
+#StartForm,
+#SubmitForm{
+	margin-top: 10px;
+}
+
+#instructionIWA,
+#WidgetContainer form,
+#SummaryContainer {
+	margin-top: 70px;
+}
+
+#SummaryContainer p {
+	font-style: italic;
+	margin-left: 10px;
+}
