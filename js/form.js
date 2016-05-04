@@ -9,9 +9,8 @@ $("#StartForm").click(function() {
     $("#StartForm").hide();
     $("#SubmitForm").removeClass("hide");
 
-    $("#WidgetContainer form").load("/iwa-files/firstname.html", function() {
+    $("#WidgetContainer form").load("/includes/form/firstname.html", function() {
         // console.log("Firstname Form");
-        $("#questionsPagination").removeClass("hide");
         $("#questionsPagination").removeClass("hide");
         $("#firstname-question").addClass("active");
     });
@@ -31,7 +30,7 @@ $("#questionsPagination ul li").on("click", function() {
     $("#questionsPagination ul li").removeClass("active");
     $(selectedquestion_id).addClass("active");
 
-    var loadhtmlfile = "/iwa-files/" + trimmed_id + ".html";
+    var loadhtmlfile = "/includes/form/" + trimmed_id + ".html";
 
     // Do not AJAX load panels that have ALREADY been AJAX loaded
     // This code checks to see if a section has previously been loaded or not
@@ -57,7 +56,6 @@ $("#questionsPagination ul li").on("click", function() {
 
 });
 
-
 $(document).on('click', '#SubmitForm', function () {
     event.preventDefault();
     var errormessage = "Please fill Out the following fields: ";
@@ -77,43 +75,15 @@ $(document).on('click', '#SubmitForm', function () {
     if (first_name_input && city_input && home_address_input) {
         console.log('All fields filled out');
 
-        // Cast an empty object for us to populate
-        var content = new Object();
+        // https://teamtreehouse.com/community/how-to-send-data-to-mysql-with-ajax-jquery-php
 
-        content.firstname = first_name_input;
-        content.city = city_input;
-        content.homeaddress = home_address_input;
-
-        // Log (display to console) the result
-        var json = JSON.stringify(content);
-        // console.log("Sending: " + json);
-
-        var mongoid = "";
-
-        // Send result to server for saving to object database
-        $.ajax({
-            type: "post",
-            url: "/iwa/save/users",
-            dataType: "json",
-            data: json,
-            contentType: "application/json",
-            success: function (data) {
-                console.log("Item saved to database!");
-                // console.log(data);
-                // console.log(data.insertedIds);
-                mongoid = data.insertedIds;
-
-                // console.log("/iwa/one/users/" + mongoid.toString());
-                window.location.replace("/iwa/one/users/" + mongoid.toString());
-
-            },
-            error: function (err) {
-                console.log("ERROR: Unable save the item to the database!", err);
-            }
+        $.post('post.php', {firstname: first_name_input, city: city_input, homeaddress: home_address_input}, function(data) {
+            $('div#viewer').text(data);
         });
 
+
     }
-    // Error Message
+    // Form Validation
     else {
         console.log(errormessage);
         $("#ErrorMessageContainer").append("<div class='alert alert-danger text-center' role='alert'>" + errormessage + "</div>");
@@ -123,23 +93,5 @@ $(document).on('click', '#SubmitForm', function () {
     }
 
 });
-
-$(document).ready(function() {
-    // If we are editing a previous MotM article, pull it's mongo db id from the URL
-    var pathArray = window.location.pathname.split('/');
-    var object_id = undefined;
-    // Make sure mongo db id's are 24 hex characters
-    if (pathArray[pathArray.length - 1].length == 24) {
-        object_id = pathArray[pathArray.length - 1];
-    }
-
-    // If we are editing something that already exists, populate with prior data from mongodb
-    if (object_id) {
-        console.log("Loading previous MotM content from ID -> ", object_id);
-        load_previous(object_id);
-    }
-});
-
-
 
 // http://stackoverflow.com/questions/931252/ajax-autosave-functionality

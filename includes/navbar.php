@@ -6,7 +6,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <button class="pull-right btn btn-default btn-sm" id="StartForm">Create New</button>
-        <button class="pull-right btn btn-default btn-sm" type="submit" id="SubmitForm">Submit Form</button>
+        <button class="pull-right btn btn-default btn-sm hide" type="submit" id="SubmitForm">Submit Form</button>
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>

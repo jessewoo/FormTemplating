@@ -1,25 +1,28 @@
-<?php include("config.php");
-$username = isset($_POST['username']);
-$message = isset($_POST['message']);
-if (($username && $message) && (empty($_POST['username'] === false) && empty($_POST['message']) === false)) {
-    $username = $_POST['username'];
-    $message = $_POST['message'];
+<?php
+// Configuration and Settings for DB
+    $host = "localhost";
+    $username = "root";
+    $password = "root";
+    $database = "iwa";
+    $port = 8889;
+    $table = "ttform";
 
-    // insert into database
-    $nowTime = getDateTime();
-    $userIp = getIp();
-    $sql = "INSERT INTO commentdb (id,username, message,date) VALUES ('','$username','$message', '$nowTime') ";
-    $result = mysql_query($sql);
+// POST Variables
+    $firstname = $_POST['firstname'];
+    $homeaddress = $_POST['homeaddress'];
+    $city = $_POST['city'];
 
-    if($result)
-    {
-        echo " Data Inserted Successfully";
-    }else{
-        echo " Data insert failed - ".mysql_error();
+//  Connect to the database
+    $connection = mysqli_connect($host, $username, $password, $database);
+
+    if ($connection) {
+        echo "connection successful to iwa database <br>";
     }
-}else{
 
-    echo " Required fields are missing";
+    $sql = "INSERT INTO $table (firstname,homeaddress,city) VALUES ($firstname,$homeaddress,$city)";
+    $query = mysqli_query($connection, $sql);
 
-}
+    if($query) {
+        echo " Data Inserted Successfully";
+    }
 ?>
