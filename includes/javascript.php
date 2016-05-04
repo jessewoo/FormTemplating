@@ -7,7 +7,7 @@
 
 <!-- Custom build JS -->
 <script src="/js/NavBarControl.js"></script>
-<script src="/js/ExtraBootstrapControls.js"></script>
+<script src="/js/formsubmission.js"></script>
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
