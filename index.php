@@ -16,7 +16,7 @@
 				<div id="ErrorMessageContainer"></div>
 
 				<div id="WidgetContainer">
-					<form role="form">
+					<form role="form" name="form" id="submissionForm">
 
 					</form>
 				</div>
@@ -47,5 +47,6 @@
 	<!-- FOOTER -->
 	<? include 'includes/footer.php'; ?>
 	<? include 'includes/javascript.php'; ?>
+	<script src="/js/form.js"></script>
   </body>
 </html>

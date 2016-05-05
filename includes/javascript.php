@@ -7,9 +7,7 @@
 
 <!-- Custom build JS -->
 <script src="/js/NavBarControl.js"></script>
-<script src="/js/formsubmission.js"></script>
-<script src="/js/form.js"></script>
-<script src="/js/summary.js"></script>
+<script src="/js/common.js"></script>
 
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

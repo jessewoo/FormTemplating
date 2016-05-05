@@ -2,18 +2,47 @@
  * Created by jessewoo on 5/4/16.
  */
 
-// LISTENER
-$("#StartForm").click(function() {
-    console.log("Start Form Button Clicked");
-    $("#instructionIWA").hide();
+function load_summary_on_edit_form(last_id) {
+    // AJAX call to GET data from DB
+    $.post('/includes/action/getdata.php', {lastid: last_id},
+        function(data) {
+            // console.log(data);
+            $('#responsecontainer').html(data);
+        }
+    );
+
+}
+
+$(document).ready(function() {
     $("#StartForm").hide();
     $("#SubmitForm").removeClass("hide");
 
-    $("#WidgetContainer form").load("/includes/form/firstname.html", function() {
-        // console.log("Firstname Form");
-        $("#questionsPagination").removeClass("hide");
-        $("#firstname-question").addClass("active");
-    });
+    var last_id = getParameterByName('id');
+
+    // Load the summary page with AJAX
+    if (last_id) {
+        console.log("Loading Recent ID:", last_id);
+        $("#mysqlID").val(last_id);
+    }
+
+    // Get array back from data
+    $.post('/includes/action/getdataEdit.php', {lastid: last_id},
+        function(data) {
+            console.log(data);
+            var obj = JSON.parse(data);
+            $("#FirstNameInput").val(obj["firstname"]);
+            $("#HomeAddressInput").val(obj["homeaddress"]);
+            $("#CityInput").val(obj["city"]);
+        }
+    );
+
+    // Hide all first
+    $(".form-group").addClass("hide");
+    $("#firstname-widgetcontainer").removeClass("hide");
+
+    $("#questionsPagination").removeClass("hide");
+    $("#firstname-question").addClass("active");
+
 });
 
 // LISTENER - when user clicks on pagination wizard
@@ -58,6 +87,10 @@ $("#questionsPagination ul li").on("click", function() {
 $(document).on('click', '#SubmitForm', function () {
     // event.preventDefault();
     var errormessage = "Please fill Out the following fields: ";
+
+    var mysqlID_input = $("#mysqlID").val();
+    console.log(mysqlID_input);
+
     var first_name_input = $("#FirstNameInput").val();
     if (!first_name_input) {
         errormessage = errormessage + " * First Name ";
@@ -75,12 +108,13 @@ $(document).on('click', '#SubmitForm', function () {
         console.log('All fields filled out');
 
         // AJAX call to insert to database
-        $.post('/includes/action/post.php', {postfirstname: first_name_input, postcity: city_input, posthomeaddress: home_address_input},
+        $.post('/includes/action/update.php', {postmysqlID: mysqlID_input, postfirstname: first_name_input, postcity: city_input, posthomeaddress: home_address_input},
             function(data) {
                 console.log(data);
                 if (data == 0) {
                     $('#ErrorMessageContainer').html("Data Failed to be inserted.");
-                } else {
+                }
+                else {
                     window.location.href = data;
                 }
             }
