@@ -1,21 +1,14 @@
-<!doctype html>
-<html ng-app>
+<!DOCTYPE html>
+<html>
  	<head>
 	    <title>Sample AngularJS Controller</title>
+		<script src="3rd-party/jquery-1.12.4.min.js"></script>
+	    <script src="3rd-party/angular.min.js"></script>
 	</head>
 	<body>
-	    <div ng-controller="TestCtrl">
-	        <h1>{{title}}</h1>
-	        <input type="text" ng-model="title">
+	    <div ng-app>
+	        <p>Your Name : <input type="text" ng-model="name"></p>
+			<h1>Hello {{name}}</h1>
 	    </div>
-
-	    <script src="3rd-party/jquery-1.12.4.min.js"></script>
-	    <script src="3rd-party/angular.min.js"></script>
-
-	    <script>
-	      function TestCtrl($scope) {
-	        $scope.title = 'Write a title here...';
-	      };
-	    </script>
 	</body>	
 </html>
