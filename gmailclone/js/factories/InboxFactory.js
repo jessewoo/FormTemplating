@@ -10,20 +10,39 @@ angular.module('EmailApp')
     'use strict';
     var exports = {};
 
-// Communicate with a RESTful API
-// Create an 'exports' Object inside Factories and return it
+	exports.messages = [];
+
+// Directives are Angular's take on custom HTML elements, reusable way to encapsulate data, templates, behaviors
+	exports.goToMessage = function(id) {
+       if ( angular.isNumber(id) ) {
+          // $location.path('inbox/email/' + id)
+       }
+    }
+
+	exports.deleteMessage = function (id, index) {
+       this.messages.splice(index, 1);
+    }
+
+	// Communicate with a RESTful API
+	// Create an 'exports' Object inside Factories and return it
     exports.getMessages = function () {
 	// Use $http to GET request, returns a PROMISE. Do something when this HTTP request has finished. 
 	// If it all goes well, do the success function
 	// If it goes wrong, do catch function
-      return $http.get('json/emails.json')
-		.success(function(data) {
-		  console.log('Successful retrieval of data!', data);   
-		})
-        .error(function (data) {
-          console.log('There was an error!', data);
-        });
-    };
+		var deferred = $q.defer();
+	      return $http.get('json/emails.json')
+	        .success(function (data) {
+	          exports.messages = data;
+	          deferred.resolve(data);
+				console.log('Successful retrieval of data!', data);   
+	        })
+	        .error(function (data) {
+	          deferred.reject(data);
+				console.log('There was an error!', data);
+	        });
+	      return deferred.promise;
+	};
+	
 
     return exports;
   });

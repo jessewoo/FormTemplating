@@ -12,6 +12,7 @@ angular.module('EmailApp').controller('InboxCtrl',
       };
 
 	// Hook up data in our controller via a Factory or Service
+	/*
       InboxFactory.getMessages()
         .success(function(jsonData, statusCode){
             console.log('The request was successful!', statusCode);
@@ -21,4 +22,6 @@ angular.module('EmailApp').controller('InboxCtrl',
               emails: jsonData
             };
         });
-    });
+	*/	
+    
+	});
