@@ -10,7 +10,9 @@
 			<h1>Filtering</h1>
 			<p>Filter selects a subset of an array</p>
 			<p>Filter can only be used on arrays, and it returns an array containing only the matching items</p>			
+			<!-- CONTROLLER - handles the data, changes the view - calls the namesCtrl function -->
 			<div ng-app="myApp" ng-controller="namesCtrl">
+				<!-- MODEL - this is the data -->
 				<p><input type="text" ng-model="test"></p>
 				<ul>
 				  	<li ng-repeat="x in names | filter : test">

@@ -18,7 +18,8 @@
 			
 			<hr>
 		    <div ng-app="" ng-init="firstName='John';lastName='Doe';person={firstName:'John',lastName:'Doe'};points=[1,15,19,2,40]">
-		        <p>Your Name : <input type="text" ng-model="name"></p>
+		        
+				<p>Your Name : <input type="text" ng-model="name"></p>
 				<h1>Hello {{name}}</h1>
 				<p>Yo, what sup: <span ng-bind="name"></span></p>
 				<p>My first expression: {{ 5 + 5 }}</p>

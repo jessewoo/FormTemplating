@@ -5,6 +5,10 @@
  */
 angular.module('EmailApp').controller('InboxCtrl',
     // Model and View binding
+
+	// ng-controller - where our controller can operate. We can have multiple controller within the application
+	// Each controller has it's own scope. 
+
 	function InboxCtrl ( $scope, InboxFactory ) {
       'use strict';
       $scope.meta = {

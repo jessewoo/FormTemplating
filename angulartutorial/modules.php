@@ -14,7 +14,9 @@
 				<li>Controllers always belong to a module</li>
 			</ul>					
 			<hr>
+			<!-- CONTROLLER - handles the data, changes the view - calls the myCtrl function -->
 			<div ng-app="myApp" ng-controller="myCtrl" w3-test-directive>
+				<!-- MODEL - this is the data -->
 				First Name: <input type="text" ng-model="firstName"><br>
 				Last Name: <input type="text" ng-model="lastName"><br>
 				<br>
