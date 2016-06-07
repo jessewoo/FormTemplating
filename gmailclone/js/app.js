@@ -1,16 +1,26 @@
-// File gives us access to an additioanl module named ngRoute
 angular.module('EmailApp', [
-  'ngRoute'
-	]).config(function ( $routeProvider ) {
-  		'use strict';
+  'ngRoute',
+  'ngSanitize'
+]).config(function ( $routeProvider ) {
+  
+  'use strict';
 
-// Model and View binding; small helper functions
-	  $routeProvider
-	    .when('/inbox', {
-	      templateUrl: 'views/inbox.html',
-	      controller: 'InboxCtrl'
-	    })
-	    .otherwise({
-	      redirectTo: '/inbox'
-	    });
+  $routeProvider
+    .when('/inbox', {
+      templateUrl: 'views/inbox.html',
+      controller: 'InboxCtrl',
+      controllerAs: 'inbox'
+    })
+    .when('/inbox/email/:id', {
+      templateUrl: 'views/email.html',
+      controller: 'EmailCtrl',
+      controllerAs: 'email'
+    })
+    .otherwise({
+      redirectTo: '/inbox'
+    });
+}).run(function($rootScope){
+  $rootScope.$on('$routeChangeError', function(event, current, previous, rejection){
+    console.log(event, current, previous, rejection)
+  })
 });
