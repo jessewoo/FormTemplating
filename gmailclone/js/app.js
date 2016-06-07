@@ -5,6 +5,9 @@ angular.module('EmailApp', [
   
   'use strict';
 
+  // Configuring Routes in the .config callback
+  // Controller is a JS object containing attributes/properties & functions
+  // Controller for specific angular Directive <inbox>
   $routeProvider
     .when('/inbox', {
       templateUrl: 'views/inbox.html',
@@ -24,3 +27,5 @@ angular.module('EmailApp', [
     console.log(event, current, previous, rejection)
   })
 });
+
+// Controller for hte module

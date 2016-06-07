@@ -15,14 +15,12 @@
 	<body>
 	    <header class="header" role="banner">
 	      <div class="header__text">
-	        <p>Angular Mail by <a href="http://www.thinkful.com/a/learn">Thinkful.com</a></p>
+	        <p>Gmail Clone</p>
 	      </div>
 	    </header>
 
 	    <main class="main" role="main">
 	      <div ng-view class="flex"></div>
 	    </main>
-		
-		<? include 'footer.php'; ?>
-	</body>	
+	</body>
 </html>
