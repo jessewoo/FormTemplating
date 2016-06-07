@@ -31,7 +31,7 @@ angular.module('EmailApp')
         InboxFactory.getMessages()
           .then( angular.bind( this, function then() {
               this.messages = InboxFactory.messages;
-              console.log(InboxFactory.messages);
+              console.log("Get messages from: " + InboxFactory.messages);
             }) );
 
       },
