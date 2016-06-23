@@ -12,3 +12,5 @@ controller('FilterController', ['filterFilter', function(filterFilter) {
     ];
     this.filteredArray = filterFilter(this.array, 'a');
 }]);
+
+// http://code.tutsplus.com/tutorials/mastering-angularjs-directives--cms-22511
